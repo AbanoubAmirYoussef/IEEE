@@ -10,4 +10,4 @@ This repository contains a tutorial on how to create a Git repository and push i
 4. Stage and commit the file using `git add *` and `git commit -m "Initial commit"`.
 5. Create a new repository on GitHub.
 6. Link the local repository to GitHub using `git remote add origin <repo-url>`.
-7. Push the code using `git push origin main`.
+7. Push the code using `git push -u origin main`.
