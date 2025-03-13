@@ -1,0 +1,34 @@
+// query 1:
+SELECT round(avg(Price),2) AS average_price FROM cars;
+
+// query 2:
+SELECT count(*) FROM cars
+WHERE "Leather interior" = "Yes" AND "Price" < 1400
+
+// query 3:
+SELECT MAX(Price) FROM cars
+WHERE "Manufacturer" = "TOYOTA" AND "Prod. year" = 2011;
+
+// query 4:
+SELECT manufacturer, ROUND(AVG(Price), 2) FROM cars
+GROUP BY manufacturer
+ORDER BY AVG(Price) DESC
+
+// query 5:
+SELECT 
+    ROUND((COUNT(*) * 100.0 / (SELECT COUNT(*) FROM cars WHERE Category = 'Jeep')), 2) AS Petrol_Jeep_Percentage
+FROM cars 
+WHERE Category = 'Jeep' AND "Fuel type" = 'Petrol';
+
+// query 6:
+SELECT * FROM cars
+WHERE Price = (
+	SELECT MIN(Price) FROM cars
+);
+
+// query 7:
+SELECT 
+    ROUND((COUNT(*) * 100.0 / (SELECT COUNT(*) FROM cars WHERE Manufacturer = 'TOYOTA')), 2) 
+    AS Toyota_Above_Avg_Percentage
+FROM cars 
+WHERE Manufacturer = 'TOYOTA' AND Price > (SELECT AVG(Price) FROM cars);
